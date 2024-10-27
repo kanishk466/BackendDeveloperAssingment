@@ -5,6 +5,8 @@ import rateLimit from "express-rate-limit";
 import authRoutes from "./src/routes/authRoutes.js";
 import userRoutes from "./src/routes/userRoutes.js";
 import taskRoutes from "./src/routes/taskRoutes.js"
+import swaggerUi from "swagger-ui-express"
+import swaggerSpec from "./swaggerConfig.js"
 configDotenv();
 
 const app = express();
@@ -22,6 +24,8 @@ app.use("/api/auth/login", loginLimiter);
 app.use("/api/auth", authRoutes);
 app.use("/api/user", userRoutes);
 app.use("/api/tasks", taskRoutes);
+
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
 app.listen(process.env.PORT , ()=>{
     console.log(`Server is running on port ${process.env.PORT}`)
