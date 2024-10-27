@@ -49,6 +49,14 @@ const options = {
           },
         },
       },
+      Developed:{
+        type: "object",
+        properties:{
+          name:"Kanishk Singh Maurya",
+          email:"kanishkas466@gmail.com",
+          linkedIn:"https://www.linkedin.com/in/kanishk007/"
+        }
+      }
     },
   },
   apis: [
